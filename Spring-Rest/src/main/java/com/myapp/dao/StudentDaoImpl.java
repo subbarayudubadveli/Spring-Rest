@@ -27,5 +27,30 @@ public class StudentDaoImpl implements StudentDao {
 	
 		return studentList;
 	}
+	@Override
+	public Student getStudentByName(String name) {
+		
+		Student studentByName= null;
+		for(Student student:studentList) {
+			
+			String studentName = student.getName();
+			if(studentName.equals(name)) {
+				studentByName =student;
+				return studentByName;
+			}
+			
+		}
+		return null;
+	}
+	@Override
+	public Student saveStudent(Student student) {
+		
+		boolean index = studentList.add(student);
+		if(index){
+			return student;
+		}
+		
+		return null;
+	}
 
 }
